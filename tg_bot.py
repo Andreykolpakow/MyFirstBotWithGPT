@@ -1,7 +1,8 @@
 import telebot
+from keys import my_first_bot_token
 
 # Укажите токен вашего бота
-TOKEN = '7352160430:AAG-999v-Yq7AiMhoZ6fr8mViWItObQKcFA'
+TOKEN = 'my_first_bot_token'
 
 bot = telebot.TeleBot(TOKEN)
 
@@ -23,8 +24,7 @@ def reply_how_are_you(message):
 
 @bot.message_handler(func=lambda message: True)
 def echo_all(message):
-    bot.reply_to(message,
-                 message.text)
+    bot.reply_to(message, message.text)
 
 
 bot.polling()
