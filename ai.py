@@ -14,12 +14,17 @@ def main():
             print("До свидания!")
             break
 
+        messages = [{
+            "role": "user",
+            "content": user_input
+        }, {
+            "role": "system",
+            "content": "отвечай в стиле юмористических анекдотов"
+        }]
+        
         chat_completion = client.chat.completions.create(
             model="gpt-3.5-turbo-1106",
-            messages=[{
-                "role": "user",
-                "content": user_input
-            }])
+            messages=messages)
 
         response = chat_completion.choices[0].message.content
         print(f"Нейросеть: {response}")  # Выводим ответ нейросети
